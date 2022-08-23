@@ -7,14 +7,15 @@ type QuestionProps = {
 }
 
 const ChildQuestion = ({question, answer} : QuestionProps) => {
+  const [isHidden, toggle] = React.useState<boolean>(true); 
   return (
     <article className="question">
         <header>{question}</header>
         <p>
-            <span className="blur">{answer}</span>
+            <span className={`${isHidden ? "blur" : ""}`}>{answer}</span>
         </p>
         <footer>
-            <button>Toggle</button>
+            <button onClick={() => toggle(!isHidden)}>Toggle</button>
         </footer>
     </article>
   )
