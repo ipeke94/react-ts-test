@@ -1,4 +1,4 @@
-import './styles/style.css';
+import './styles/style.scss';
 // import * as PropTypes from 'prop-types';
 // import Children from "./Children";
 import Question from "./components/Question";
