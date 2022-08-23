@@ -1,7 +1,11 @@
 import './styles/style.scss';
+import * as React from "react";
 // import * as PropTypes from 'prop-types';
 // import Children from "./Children";
-import Question from "./components/Question";
+// import Question from "./components/Question";
+import { CharType, fetchChar } from "./components/Character";
+import CharInfo  from "./components/CharInfo";
+import Loading from "./components/Loading";
 
 // export type NameTagProps = {
 //   name: string
@@ -42,6 +46,25 @@ import Question from "./components/Question";
 
 // const App = () => <Children/>
 
-const App = () => <Question/>
+// const App = () => <Question/>
+
+
+const App = () => {
+    const [character, setCharacter] = React.useState<CharType | null>(null);
+    const [loading, setLoading] = React.useState(true);
+    React.useEffect(() => {
+        setTimeout(() => {fetchChar().then(
+        (char) => {
+            setCharacter(char)});
+            setLoading(false);
+        }, 1500)
+    }, []);
+    return (
+        <main>
+            {loading && <Loading/>}
+            {character ? <CharInfo char={character}/> : null} 
+        </main>
+    );
+}
 
 export default App;

@@ -101,3 +101,12 @@ span {
   color: transparent;
   text-shadow: 0 0 10px rgba(0,0,0,0.75);
 }
+
+.charName, .loading, .charFeature {
+  text-align: center;
+  color: #fff;
+}
+
+.charFeature {
+  color: rgb(198, 16, 180);
+}
