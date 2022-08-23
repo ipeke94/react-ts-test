@@ -1,7 +1,8 @@
 import './style.css';
 // import * as PropTypes from 'prop-types';
+import Children from "./Children";
 
-type NameTagProps = {
+export type NameTagProps = {
   name: string
 }
 
@@ -38,6 +39,8 @@ const NameTag = ({name}: NameTagProps) =>  {
 //   name: PropTypes.string,
 // }
 
-const App = () => <NameTag name={"ipek"}/>
+// const App = () => <NameTag name={"ipek"}/>
+
+const App = () => <Children/>
 
 export default App;
