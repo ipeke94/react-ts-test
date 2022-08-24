@@ -6,6 +6,7 @@ import * as React from "react";
 import { CharType, fetchChar } from "./components/Character";
 import CharInfo  from "./components/CharInfo";
 import Loading from "./components/Loading";
+import SimpleCounter from "./components/SimpleCounter";
 
 // export type NameTagProps = {
 //   name: string
@@ -49,22 +50,26 @@ import Loading from "./components/Loading";
 // const App = () => <Question/>
 
 
-const App = () => {
-    const [character, setCharacter] = React.useState<CharType | null>(null);
-    const [loading, setLoading] = React.useState(true);
-    React.useEffect(() => {
-        setTimeout(() => {fetchChar().then(
-        (char) => {
-            setCharacter(char)});
-            setLoading(false);
-        }, 1500)
-    }, []);
-    return (
-        <main>
-            {loading && <Loading/>}
-            {character ? <CharInfo char={character}/> : null} 
-        </main>
-    );
+const App = () => { return <SimpleCounter 
+    incident="first test prop"
+    style={{ padding: "10px"}}
+    />
+    
+    // const [character, setCharacter] = React.useState<CharType | null>(null);
+    // const [loading, setLoading] = React.useState(true);
+    // React.useEffect(() => {
+    //     setTimeout(() => {fetchChar().then(
+    //     (char) => {
+    //         setCharacter(char)});
+    //         setLoading(false);
+    //     }, 1500)
+    // }, []);
+    // return (
+    //     <main>
+    //         {loading && <Loading/>}
+    //         {character ? <CharInfo char={character}/> : null} 
+    //     </main>
+    // );
 }
 
 export default App;
