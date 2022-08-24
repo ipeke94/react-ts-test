@@ -3,10 +3,11 @@ import * as React from "react";
 // import * as PropTypes from 'prop-types';
 // import Children from "./Children";
 // import Question from "./components/Question";
-import { CharType, fetchChar } from "./components/Character";
-import CharInfo  from "./components/CharInfo";
-import Loading from "./components/Loading";
-import SimpleCounter from "./components/SimpleCounter";
+// import { CharType, fetchChar } from "./components/Character";
+// import CharInfo  from "./components/CharInfo";
+// import Loading from "./components/Loading";
+// import SimpleCounter from "./components/SimpleCounter";
+import SimpleCounterHook from "./components/SimpleCounterHook";
 
 // export type NameTagProps = {
 //   name: string
@@ -50,10 +51,14 @@ import SimpleCounter from "./components/SimpleCounter";
 // const App = () => <Question/>
 
 
-const App = () => { return <SimpleCounter 
-    incident="first test prop"
-    style={{ padding: "10px"}}
-    />
+const App = () => { 
+        return(<SimpleCounterHook style={{ padding: 10}}/>)
+
+
+    //     return <SimpleCounter 
+    //     incident="first test prop"
+    //     style={{ padding: "10px"}}
+    // />
     
     // const [character, setCharacter] = React.useState<CharType | null>(null);
     // const [loading, setLoading] = React.useState(true);
