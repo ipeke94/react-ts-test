@@ -4,16 +4,26 @@ type simpleState = {
     count: number
 }
 
+// type simpleAction = {
+//     type: "INCREMENT" | "DECREMENT" | "RESET" | "SET",
+//     payload?: number
+// }
 type simpleAction = {
-    type: "INCREMENT" | "DECREMENT" | "RESET" | "SET",
-    payload?: number
+    type: "INCREMENT" | "DECREMENT" | "RESET"
+}
+
+type setAction = {
+    type: "SET";
+    payload: number;
 }
 
 const initialState: simpleState = {
     count: 0
 }
 
-const reducer = (state: simpleState, action:simpleAction) => {
+type simpleCounterAction =  simpleAction | setAction;
+
+const reducer = (state: simpleState, action:simpleCounterAction) => {
     if(action.type === "INCREMENT") {
         return {count : state.count +1}
     }
