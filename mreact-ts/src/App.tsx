@@ -7,7 +7,11 @@ import * as React from "react";
 // import CharInfo  from "./components/CharInfo";
 // import Loading from "./components/Loading";
 // import SimpleCounter from "./components/SimpleCounter";
-import SimpleCounterHook from "./components/SimpleCounterHook";
+// import SimpleCounterHook from "./components/SimpleCounterHook";
+// import Facts from "./components/Facts";
+// import {FactType, fetchFacts} from "./components/Fact";
+import Application from "./components/Application";
+
 
 // export type NameTagProps = {
 //   name: string
@@ -52,8 +56,9 @@ import SimpleCounterHook from "./components/SimpleCounterHook";
 
 
 const App = () => { 
-        return(<SimpleCounterHook style={{ padding: 10}}/>)
-
+    return (<Application/>)
+    
+    // return(<SimpleCounterHook style={{ padding: 10}}/>)
 
     //     return <SimpleCounter 
     //     incident="first test prop"
