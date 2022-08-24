@@ -10,7 +10,8 @@ import * as React from "react";
 // import SimpleCounterHook from "./components/SimpleCounterHook";
 // import Facts from "./components/Facts";
 // import {FactType, fetchFacts} from "./components/Fact";
-import Application from "./components/Application";
+// import Application from "./components/Application";
+import CalculatorApp from "./components/CalculatorApp";
 
 
 // export type NameTagProps = {
@@ -56,7 +57,9 @@ import Application from "./components/Application";
 
 
 const App = () => { 
-    return (<Application/>)
+    return (<CalculatorApp/>)
+
+    // return (<Application/>)
     
     // return(<SimpleCounterHook style={{ padding: 10}}/>)
 
