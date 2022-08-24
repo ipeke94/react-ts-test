@@ -11,7 +11,8 @@ import * as React from "react";
 // import Facts from "./components/Facts";
 // import {FactType, fetchFacts} from "./components/Fact";
 // import Application from "./components/Application";
-import CalculatorApp from "./components/CalculatorApp";
+// import CalculatorApp from "./components/CalculatorApp";
+import SimpleReducer from "./components/SimpleReducer";
 
 
 // export type NameTagProps = {
@@ -57,7 +58,8 @@ import CalculatorApp from "./components/CalculatorApp";
 
 
 const App = () => { 
-    return (<CalculatorApp/>)
+    return (<SimpleReducer/>)
+    // return (<CalculatorApp/>)
 
     // return (<Application/>)
     
