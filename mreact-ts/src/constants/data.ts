@@ -1,14 +1,14 @@
-export default [
-{
-  "name": "Agent Bob",
-  "alignment": "good",
-  "intelligence": 10,
-  "strength": 8,
-  "speed": 13,
-  "durability": 5,
-  "power": 5,
-  "combat": 20,
-  "total": 61
+export const data = [
+  {
+    "name": "Agent Bob",
+    "alignment": "good",
+    "intelligence": 10,
+    "strength": 8,
+    "speed": 13,
+    "durability": 5,
+    "power": 5,
+    "combat": 20,
+    "total": 61
   },
   {
     "name": "Agent Zero",

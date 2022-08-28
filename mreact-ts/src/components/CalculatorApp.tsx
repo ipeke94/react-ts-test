@@ -6,7 +6,7 @@ type PizzaData = {
     slicesPerPie: number;
 };
 
-type PizzaState = PizzaData & { pizzasNeeded: number};
+type PizzaState = PizzaData & { pizzasNeeded: number };
 
 type PizzaAction = {
     type: "UPDATE_NUM_OF_PEOPLE" | "UPDATE_SLICES_PER_PERSON" | "UPDATE_SLICES_PER_PIE",
@@ -14,7 +14,7 @@ type PizzaAction = {
 }
 
 const initialState: PizzaState = {
-    numOfPeople:8,
+    numOfPeople: 8,
     slicesPerPerson: 2,
     slicesPerPie: 8,
     pizzasNeeded: 2
@@ -25,28 +25,28 @@ const calculateRequiredPizza = ({
     numOfPeople,
     slicesPerPerson,
     slicesPerPie
-}: PizzaData) : number => {
-    return Math.ceil((numOfPeople  * slicesPerPerson) / slicesPerPie)
+}: PizzaData): number => {
+    return Math.ceil((numOfPeople * slicesPerPerson) / slicesPerPie)
 }
 
 const addPizzaIfRequired = (data: PizzaData): PizzaState => {
-    return {...data, pizzasNeeded: calculateRequiredPizza(data)}
+    return { ...data, pizzasNeeded: calculateRequiredPizza(data) }
 }
 
 const pizzaReducer = (state: PizzaState, action: PizzaAction) => {
-    if(action.type === "UPDATE_NUM_OF_PEOPLE") {
+    if (action.type === "UPDATE_NUM_OF_PEOPLE") {
         return addPizzaIfRequired({
             ...state,
             numOfPeople: action.payload
         })
     }
-    if(action.type === "UPDATE_SLICES_PER_PERSON") {
+    if (action.type === "UPDATE_SLICES_PER_PERSON") {
         return addPizzaIfRequired({
             ...state,
             slicesPerPerson: action.payload
         })
     }
-    if(action.type === "UPDATE_SLICES_PER_PIE") {
+    if (action.type === "UPDATE_SLICES_PER_PIE") {
         return addPizzaIfRequired({
             ...state,
             slicesPerPie: action.payload
@@ -55,24 +55,24 @@ const pizzaReducer = (state: PizzaState, action: PizzaAction) => {
     return state;
 }
 
-const Calculation = ({count}: {count: any}) => {
-    return(
-        <section className="calculationPizza" style={{textAlign:"center",padding: "20px"}}>
-            <p className="count" style={{display:"inline", color: "red"}}>{count}</p>
-            <p className="caption" style={{display:"inline", padding: "10px", color: "red"}}>Pizza required</p>
+const Calculation = ({ count }: { count: any }) => {
+    return (
+        <section className="calculationPizza">
+            <p className="count">{count}</p>
+            <p className="caption">Pizza required</p>
         </section>
     )
 }
 
-const Calculator = ({dispatch, state}: { state: PizzaState; dispatch: Dispatch<PizzaAction>}) => {
-    return(
-        <form onSubmit={() => {}}>
+const Calculator = ({ dispatch, state }: { state: PizzaState; dispatch: Dispatch<PizzaAction> }) => {
+    return (
+        <form onSubmit={() => { }}>
             <label htmlFor="num-of-people">Num of People</label>
             <input
                 className="num-of-people"
                 type="number"
                 value={state.numOfPeople}
-                onChange={(e) =>dispatch({
+                onChange={(e) => dispatch({
                     type: 'UPDATE_NUM_OF_PEOPLE',
                     payload: +e.target.value
                 }
@@ -83,7 +83,7 @@ const Calculator = ({dispatch, state}: { state: PizzaState; dispatch: Dispatch<P
                 className="slices-per-person"
                 type="number"
                 value={state.slicesPerPerson}
-                onChange={(e) =>dispatch({
+                onChange={(e) => dispatch({
                     type: 'UPDATE_SLICES_PER_PERSON',
                     payload: +e.target.value
                 }
@@ -94,7 +94,7 @@ const Calculator = ({dispatch, state}: { state: PizzaState; dispatch: Dispatch<P
                 className="slices-per-pie"
                 type="number"
                 value={state.slicesPerPie}
-                onChange={(e) =>dispatch({
+                onChange={(e) => dispatch({
                     type: 'UPDATE_SLICES_PER_PIE',
                     payload: +e.target.value
                 }
@@ -105,13 +105,13 @@ const Calculator = ({dispatch, state}: { state: PizzaState; dispatch: Dispatch<P
 }
 
 const CalculatorApp = () => {
-    const [state,dispatch] = useReducer(pizzaReducer, initialState);
+    const [state, dispatch] = useReducer(pizzaReducer, initialState);
     return (
         <main className="pizzaCalculator">
             <header>
-                <h1>Simple Pizza CalculatorApp </h1>
+                <h1>Simple Pizza Calculator App </h1>
             </header>
-            <Calculator state={state} dispatch={dispatch}/>
+            <Calculator state={state} dispatch={dispatch} />
             <Calculation count={state.pizzasNeeded} />
         </main>
     )
