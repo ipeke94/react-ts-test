@@ -58,8 +58,7 @@ const pizzaReducer = (state: PizzaState, action: PizzaAction) => {
 const Calculation = ({ count }: { count: any }) => {
     return (
         <section className="calculationPizza">
-            <p className="count">{count}</p>
-            <p className="caption">Pizza required</p>
+            <p className="caption">{count} Pizza required</p>
         </section>
     )
 }
@@ -71,6 +70,7 @@ const Calculator = ({ dispatch, state }: { state: PizzaState; dispatch: Dispatch
             <input
                 className="num-of-people"
                 type="number"
+                min="1"
                 value={state.numOfPeople}
                 onChange={(e) => dispatch({
                     type: 'UPDATE_NUM_OF_PEOPLE',
@@ -82,6 +82,7 @@ const Calculator = ({ dispatch, state }: { state: PizzaState; dispatch: Dispatch
             <input
                 className="slices-per-person"
                 type="number"
+                min="1"
                 value={state.slicesPerPerson}
                 onChange={(e) => dispatch({
                     type: 'UPDATE_SLICES_PER_PERSON',
@@ -93,6 +94,7 @@ const Calculator = ({ dispatch, state }: { state: PizzaState; dispatch: Dispatch
             <input
                 className="slices-per-pie"
                 type="number"
+                min="1"
                 value={state.slicesPerPie}
                 onChange={(e) => dispatch({
                     type: 'UPDATE_SLICES_PER_PIE',
