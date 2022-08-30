@@ -51,7 +51,7 @@ const SimpleReducer = () => {
 
     return (
         <main className="counter-container">
-            <h1>Simple Counter with using Reducer</h1>
+            <h1>Simple Counter using Reducer ➖➕✖️➗</h1>
             <section className="control-buttons wrapper">
                 <p className="counter-text">{state.count}</p>
                 <button className="increment" onClick={increment}>+</button>

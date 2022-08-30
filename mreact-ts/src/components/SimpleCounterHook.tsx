@@ -18,7 +18,7 @@ const SimpleCounterHook = ({ style = {} }: Style) => {
 
     return (
         <main className="counter-container" style={{ ...style }}>
-            <h1>Simple Counter with using React Hooks</h1>
+            <h1>Simple Counter with using React Hooks 🧮</h1>
             <section className="control-buttons wrapper">
                 <p className="counter-text" >{count}</p>
                 <button className="increment" onClick={() => setCount(count + 1)}>+</button>

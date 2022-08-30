@@ -12,24 +12,27 @@ type SelectionProps = {
 const Selection = ({ onSubmit }: SelectionProps) => {
     const [value, setValue] = React.useState(0);
 
-    return <form onSubmit={(e) => { e.preventDefault(); onSubmit(value); }}>
-        <section className="fact">
-            <label htmlFor="facts-number">Number of Facts °-°</label>
-            <input type="number"
-                onChange={(e) => setValue(+e.target.value)}
-                value={value}
-                min="1" max="5">
-            </input>
-        </section>
-        <input type="submit" value="Click Here!"></input>
-    </form>
+    return (
+        <form data-testid="app-form" onSubmit={(e) => { e.preventDefault(); onSubmit(value); }}>
+            <section className="fact">
+                <label htmlFor="facts-number">...! If you dare, set the fact number and see the results °-° 👻 °-° !...</label>
+                <input type="number"
+                    onChange={(e) => setValue(+e.target.value)}
+                    value={value}
+                    min="1" max="5"
+                    data-testid="app-num-inp" 
+                    >
+                </input>
+            </section>
+            <input data-testid="app-fact-btn"  className="fact-btn" type="submit" value="Are you ready? 💫 "></input>
+        </form>)
 }
 
 const Facts = ({ fact }: { fact: string }) => {
     return (
-        <div className="fact-wrapper">
+        <div className="fact-wrapper" data-testid="fact-wrapper">
             <article className="fact">
-                <h2 >Fact</h2>
+                <h2 >Fact 💥</h2>
                 <p>{fact}</p>
             </article>
         </div>

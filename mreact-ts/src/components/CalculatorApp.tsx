@@ -58,7 +58,7 @@ const pizzaReducer = (state: PizzaState, action: PizzaAction) => {
 const Calculation = ({ count }: { count: any }) => {
     return (
         <section className="calculationPizza">
-            <p className="caption">{count} Pizza required</p>
+            <p className="caption">{count} Pizza/Pizzas required</p>
         </section>
     )
 }
@@ -111,7 +111,7 @@ const CalculatorApp = () => {
     return (
         <main className="pizzaCalculator">
             <header>
-                <h1>Simple Pizza Calculator App </h1>
+                <h1>Simple Pizza Calculator App 🍕 </h1>
             </header>
             <Calculator state={state} dispatch={dispatch} />
             <Calculation count={state.pizzasNeeded} />

@@ -15,21 +15,23 @@ import Children from "./Children";
 import Question from "./Question";
 
 
-type additionalProps = {
+interface AdditionalProps {
     style?: React.CSSProperties
-    incident?: string
+    incident?: string,
 }
 
-interface IRoute {
+
+interface IRoute extends AdditionalProps{
     path: string,
-    Component: React.ElementType<{ additionalProps: additionalProps }> | React.ElementType;
+    Component: React.ElementType
+
 }
 
 const Main = () => {
     const routes: IRoute[] = [
         {
             path: "/home",
-            Component: Home
+            Component: Home,
         },
         {
             path: "/simplereducer",
@@ -45,11 +47,14 @@ const Main = () => {
         },
         {
             path: "/simplecounterhook",
-            Component: SimpleCounterHook
+            Component: SimpleCounterHook,
+            style: {padding: "10px"}
         },
         {
             path: "/simplecounter",
-            Component: SimpleCounter
+            Component: SimpleCounter,
+            incident: "Test",
+            style: {padding: "10px"}
         },
         {
             path: "/children",
@@ -57,7 +62,8 @@ const Main = () => {
         },
         {
             path: "/question",
-            Component: Question
+            Component: Question,
+
         },
         {
             path: "/charinfo",
@@ -65,10 +71,17 @@ const Main = () => {
         }
     ];
 
-    const routeComponents = routes.map(({ path, Component }, index: number) => {
-        return <Route key={index} path={path} element={<Component key={index} />} />
-    }
-    );
+    const routeComponents = routes.map(({ path, Component, style, incident}, index: number ) => {
+        return <Route key={index} path={path} 
+        element={
+            <Component 
+                key={index} 
+                style={style} 
+                incident={incident}
+                />
+            } 
+        />
+    });
     return (
         <main>
             <Routes>{routeComponents}</Routes>
@@ -77,5 +90,7 @@ const Main = () => {
     );
 }
 export default Main;
+
+
 
 

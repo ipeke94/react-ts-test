@@ -10,7 +10,9 @@ const App = () => {
 
     return (
         <div className="app">
+            <h1 className="component-list-name">^_^ Component List 🤖 ^_^</h1>
             <ul>{listItems}</ul>
+            <h2 className="show-text">Let the show begin..! 🎉</h2>
             <Main />
         </div>)
 }

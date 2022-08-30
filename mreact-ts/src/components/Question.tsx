@@ -1,34 +1,35 @@
 import * as React from 'react';
 import { questions } from '../constants/questions';
 
-type QuestionProps = {
+type QuestionsProps = {
     question: string;
     answer: string;
 }
 
-const ChildQuestion = ({ question, answer }: QuestionProps) => {
+const ChildQuestion = ({ question, answer }: QuestionsProps) => {
+     // + " 🙋‍♀️ 🙋 "
     const [isHidden, toggle] = React.useState<boolean>(true);
     return (
         <article className="question">
-            <header>{question}</header>
-            <div className={`answerQ ${isHidden && "blur"}`}>{answer}</div>
+            <header data-testid="header-question">{question}</header>
+            <div data-testid="answer" className={`answerQ ${isHidden ? "blur" : ""}`}>{answer}</div>
             <footer>
-                <button onClick={() => toggle(!isHidden)}>Toggle</button>
+                <button data-testid="toggle-btn" className="toggle" onClick={() => toggle(!isHidden)}>Toggle</button>
             </footer>
         </article>
     )
 }
 
-const Question = () => {
+const Questions = () => {
     return (
         <main>
-            {
+            { (questions && questions.length > 0) ?  
                 questions.map(q => (
                     <ChildQuestion question={q.question} answer={q.answer} key={q.id} />
-                ))
+                )) : <div>No questions</div>
             }
         </main>
     )
 }
 
-export default Question;
+export default Questions;

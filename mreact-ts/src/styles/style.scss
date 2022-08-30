@@ -12,6 +12,7 @@ $light-clr: rgba(16 18 27 / 40%);
   --white: #f7f8fa;
   --orange: rgb(216, 140, 93);
   --lightgray: rgb(187, 194, 213);
+  --mediumblue: #3d5af1;
   --font-size: 1.3rem;
   --font-size-inp: 1rem;
   --mono: "Oxygen mono", monospace;
@@ -87,10 +88,27 @@ h3 {
 
 
 h1,
+h2,
 .demo {
   text-align: center;
   font-weight: 600;
 }
+
+.component-list-name {
+  color: var(--white);
+  background-color: lighten($primary-clr, 60);
+}
+
+h2,
+.demo {
+  color: var(--lightgray);
+  background-color: darken($primary-clr, 60);
+}
+
+.demo {
+  color: var(--lightblack)
+}
+
 
 button,
 input[type="submit"] {
@@ -135,12 +153,15 @@ form {
     text-align: center;
     display: block;
     margin-bottom: 0.5em;
+    color: var(--black);
+    font-weight: 600;
+    // background-color: darken($primary-clr, 60);
   }
 }
 
 main {
   margin: 2em auto;
-  width: 100%;
+  width: 76%;
 }
 
 .counter-container {
@@ -156,6 +177,7 @@ main {
 
 .counter-text {
   padding: 10px;
+  background-color: lighten($primary-clr, 60);
 }
 
 .wrapper {
@@ -257,6 +279,10 @@ main {
     margin: 12px;
     font-weight: var(--font-size-inp);
   }
+
+  p {
+    padding: 0 16px;
+  }
 }
 
 .pizzaCalculator,
@@ -272,10 +298,40 @@ main {
 
   .caption {
     display: inline;
-    color: var(--magenta);
+    color: var(--orange);
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
     background-color: var(--lightblack);
+  }
+}
+
+// Loading styles
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 10px solid var(--mediumblue);
+  border-top: 10px solid var(--dkblue);
+  border-radius: 50%;
+  animation: spinner 1.5s linear infinite;
+}
+
+.loading {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 350px;
+  text-align: center;
+  color: var(--dkblue);
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }

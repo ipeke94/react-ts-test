@@ -1,10 +1,10 @@
-export type QuestionType = {
-    id: number;
-    question: string;
-    answer: string;
-  };
-  
-  export const questions: QuestionType[] = [
+export type QuestionType ={
+  id: number;
+  question: string;
+  answer: string;
+};
+
+export const questions: QuestionType[] = [
     {
       id: 1,
       question: 'What is always coming but never arrives?',

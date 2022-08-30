@@ -1,16 +1,14 @@
-import React, { ChangeEvent, Component } from 'react'
-
-// type CounterProps = {
-//   incident: string;
-//   style?: React.CSSProperties;
-// }
+import React, { ChangeEvent, Component} from 'react';
+type CounterProps = {
+  incident: string;
+  style?: React.CSSProperties;
+}
 
 type CounterState = {
   count: number;
 }
 
-
-class SimpleCounter extends Component<CounterState> {
+class SimpleCounter extends Component<CounterProps, CounterState> {
   state: CounterState = {
     count: 0
   }
@@ -46,11 +44,11 @@ class SimpleCounter extends Component<CounterState> {
 
 
   render() {
-    // const { incident, style = {} } = this.props;
+    const { incident, style = {} } = this.props;
     const { count } = this.state;
     return (
-      <main className="counter-container">
-        <h1>Simple Counter</h1>
+      <main style={{...style}} className="counter-container">
+        <h1 data-testid="header">Simple Counter {incident}</h1>
         <section className="control-buttons wrapper">
           <p className="counter-text">{count}</p>
           <button onClick={this.increment}>+</button>
@@ -60,7 +58,7 @@ class SimpleCounter extends Component<CounterState> {
         <section className="control-buttons">
           <form onSubmit={() => { }}>
             <label htmlFor="set-to" className="">
-              Set Count
+              Set Count Please...
             </label>
             <input id="set-to" type="number" onChange={this.setCount} value={count} />
             <input type="submit" />

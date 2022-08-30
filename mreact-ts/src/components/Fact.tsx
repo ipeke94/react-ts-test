@@ -7,5 +7,6 @@ export type FactType = {
 }
 
 export const fetchFacts = (n:number) => {
-    return Promise.resolve(dogData).then((facts) => shuffle(facts).slice(0,n))
+    // return Promise.resolve(dogData).then((facts) => shuffle(facts).slice(0,n))
+    return Promise.resolve(dogData).then((facts) => (facts.slice(0,n)))
 }
