@@ -1,4 +1,4 @@
-import { validation } from '../components/Validation';
+import { validation } from '../components/Validation.ts';
 import { Selection } from '../components/Application';
 import { render, screen } from "@testing-library/react";
 import userEvent from '@testing-library/user-event';
