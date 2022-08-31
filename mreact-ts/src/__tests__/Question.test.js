@@ -20,7 +20,6 @@ test("first question rendered properly", () => {
 
 
 test('question toggle changed className correctly', () => {
-    // const { getAllByRole, getByRole, queryByLabelText, getByLabelText, debug } = render(<Question />);
     const { debug } = render(<Question />);
     const toggleBtn = screen.getAllByTestId("toggle-btn");
     // // const toggleBtn = container.getAllByRole('button', { name: /toggle/i });
