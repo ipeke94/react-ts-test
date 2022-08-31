@@ -1,5 +1,6 @@
 import * as React from "react";
 import { FactType, fetchFacts } from "./Fact";
+import {validation} from "./Validation";
 
 // type Style = { 
 //     style?: React.CSSProperties;
@@ -9,31 +10,50 @@ type SelectionProps = {
     onSubmit: (n: number) => void
 }
 
-const Selection = ({ onSubmit }: SelectionProps) => {
+export const Selection = ({ onSubmit }: SelectionProps) => {
     const [value, setValue] = React.useState(0);
+    const [errorMessage, setErrorMessage] = React.useState('');
+    
+    const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault(); 
+        onSubmit(value);
+        const error = validation(value);
+        if (error) {
+            setErrorMessage(error)
+            return
+      }
+    }
+    
+    const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setErrorMessage('');
+        setValue(+e.target.value);
+    }
 
     return (
-        <form data-testid="app-form" onSubmit={(e) => { e.preventDefault(); onSubmit(value); }}>
+        <form data-testid="app-form" onSubmit={(e) => submitHandler(e)}>
             <section className="fact">
                 <label htmlFor="facts-number">...! If you dare, set the fact number and see the results °-° 👻 °-° !...</label>
                 <input type="number"
-                    onChange={(e) => setValue(+e.target.value)}
+                    onChange={(e) => handleInput(e)}
                     value={value}
-                    min="1" max="5"
+                    // min="1" max="5"
                     data-testid="app-num-inp" 
                     >
                 </input>
             </section>
             <input data-testid="app-fact-btn"  className="fact-btn" type="submit" value="Are you ready? 💫 "></input>
+            <div data-testid="error-text" className="error-message">
+             {errorMessage}
+            </div>
         </form>)
 }
 
-const Facts = ({ fact }: { fact: string }) => {
+export const Facts = ({ fact }: { fact: string }) => {
     return (
-        <div className="fact-wrapper" data-testid="fact-wrapper">
+        <div className="fact-wrapper">
             <article className="fact">
                 <h2 >Fact 💥</h2>
-                <p>{fact}</p>
+                <p data-testid="fact-text">{fact}</p>
             </article>
         </div>
     )
