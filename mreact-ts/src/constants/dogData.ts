@@ -44,12 +44,12 @@ export const dogData = [{
       'Dogs are about as intelligent as a two-year-old'
   },
   {
-    id: 5,
+    id: 10,
     fact:
       'Rin Tin Tin, the famous German Shepherd, was nominated for an Academy Award.'
   },
   {
-    id: 6,
+    id: 11,
     fact:
       'All puppies are born deaf.'
   }
