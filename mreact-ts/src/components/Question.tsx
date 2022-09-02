@@ -7,7 +7,7 @@ type QuestionsProps = {
 }
 
 const ChildQuestion = ({ question, answer }: QuestionsProps) => {
-     // + " 🙋‍♀️ 🙋 "
+    // + " 🙋‍♀️ 🙋 "
     const [isHidden, toggle] = React.useState<boolean>(true);
     return (
         <article className="question">
@@ -23,7 +23,7 @@ const ChildQuestion = ({ question, answer }: QuestionsProps) => {
 const Questions = () => {
     return (
         <main>
-            { (questions && questions.length > 0) ?  
+            {(questions && questions.length > 0) ?
                 questions.map(q => (
                     <ChildQuestion question={q.question} answer={q.answer} key={q.id} />
                 )) : <div>No questions</div>

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Component} from 'react';
+import React, { ChangeEvent, Component } from 'react';
 type CounterProps = {
   incident: string;
   style?: React.CSSProperties;
@@ -47,7 +47,7 @@ class SimpleCounter extends Component<CounterProps, CounterState> {
     const { incident, style = {} } = this.props;
     const { count } = this.state;
     return (
-      <main style={{...style}} className="counter-container">
+      <main style={{ ...style }} className="counter-container">
         <h1 data-testid="header">Simple Counter {incident}</h1>
         <section className="control-buttons wrapper">
           <p className="counter-text">{count}</p>

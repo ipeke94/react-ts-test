@@ -6,7 +6,7 @@ import { Routes, Route } from "react-router-dom";
 
 const App = () => {
   const routeComponents = routes.map(({ path, Component, name }, index: number) => (
-  <Route key={index} path={path} element={<Component key={index}/>} />));
+    <Route key={index} path={path} element={<Component key={index} />} />));
 
   const listItems = routes.map(({ path, name }, index) => (
     <li key={index}>
